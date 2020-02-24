@@ -1,12 +1,12 @@
 /*
  * @Author: changcheng
- * @LastEditTime: 2020-02-22 12:31:56
+ * @LastEditTime: 2020-02-24 09:58:50
  * @Description: 用户数据模型
  */
 
- const seq = require('../seq')
- const {STRING,DECIMAL} = require('../types')
- // users 模型数据表
+const seq = require('../seq')
+const {STRING,DECIMAL} = require('../types')
+// users 模型数据表
 const User = seq.define('User',{
     userName:{
         type:STRING,
