@@ -1,10 +1,10 @@
 /*
  * @Author: changcheng
- * @LastEditTime : 2020-01-03 16:16:26
+ * @LastEditTime: 2020-02-22 12:24:17
  * @Description: 同步数据库
  */
 const seq = require('./seq')
-// require('./model')
+require('./model/index')
 
 // 测试连接
 seq.authenticate().then(() => {

@@ -1,3 +1,8 @@
+/*
+ * @Author: changcheng
+ * @LastEditTime: 2020-02-22 13:48:57
+ * @Description: 
+ */
 const Koa = require('koa')
 const app = new Koa()
 const views = require('koa-views')
@@ -9,8 +14,9 @@ const logger = require('koa-logger')
 const {isProd} = require('./utils/env')
 const {REDIS_CONF} = require('./conf/db')
 const index = require('./routes/index')
-const users = require('./routes/users')
-const jwtKoa = require('koa-jwt')
+const usersViewRouters = require('./routes/view/users')
+const userApitRouters = require('./routes/api/user')
+// const jwtKoa = require('koa-jwt')
 const {SECRET} = require('../conf/index')
 const session = require('koa-generic-session')
 const errorViewRouters = require('./routes/view/error')
@@ -65,7 +71,8 @@ app.use(async (ctx, next) => {
 
 // routes
 app.use(index.routes(), index.allowedMethods())
-app.use(users.routes(), users.allowedMethods())
+app.use(usersViewRouters.routes(), usersViewRouters.allowedMethods())
+app.use(userApitRouters.routes(), userApitRouters.allowedMethods())
 app.use(errorViewRouters.routes(), errorViewRouters.allowedMethods())
 
 // error-handling
